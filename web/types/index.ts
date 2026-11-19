@@ -4,7 +4,7 @@ export type ConversationStatus = "open" | "pending" | "closed";
 export type UserPreview = Pick<User , "id" | "name" | "avatarUrl" >;
 // Omit: remove some fields. Useful when creating a message (the server sets id and date).
 
-tpye newMessage = Omit<Message , "id" | "createdAt" | "readyBy" >;
+type newMessage = Omit<Message , "id" | "createdAt" | "readyBy" >;
 export interface ApiResponse<T>{
   data:T;
   error?:string;
@@ -40,5 +40,5 @@ export function getUnreadCount(messages: Message[], userId: string): number {
   ).length;
 }
 export function getLast<T>(items:T[]):T | undefined{
-  retunr items.at(-1);
+  return items.at(-1);
 }
